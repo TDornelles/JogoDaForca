@@ -7,6 +7,9 @@ public class ControladorDeErros implements Cloneable
 		// verifica se qtdMax fornecida não é positiva, lançando
 		// uma exceção.
 		// armazena qtdMax fornecida em this.qtdMax.
+
+        if (qtdMax < 0) throw new Exception("Quantidade máxima inválida!");
+        this.qtdMax = qtdMax;
     }
 
     public void registreUmErro () throws Exception
@@ -14,12 +17,16 @@ public class ControladorDeErros implements Cloneable
         // verifica se this.qtdErr ja é igual a this.qtdMax,
         // lançando excecao em caso positivo ou
         // incrementando this.qtdErr em caso negativo
+        if (this.qtdErr == this.qtdMax) throw new Exception("");
     }
 
     public boolean isAtingidoMaximoDeErros  ()
     {
         // returna true se this.qtdErr for igual a this.qtdMax,
         // ou então false, caso contrario.
+        if (this.qtdErr == this.qtdMax) return true;
+
+        return false;
     }
 
     public String toString ()

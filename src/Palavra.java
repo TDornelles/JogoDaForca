@@ -7,13 +7,22 @@ public class Palavra implements Comparable<Palavra>
 		// verifica se o texto recebido é nulo ou então vazio,
 		// ou seja, sem nenhum caractere, lançando exceção.
 		// armazena o texto recebido em this.texto.
+        if(texto == null){
+            throw new Exception("Texto vazio!");
+        }
+        this.texto = texto;
     }
 
     public int getQuantidade (char letra)
     {
         // percorre o String this.texto, conta e retorna
         // quantas letras existem nele iguais a letra fornecida
-        
+        byte buffer = 0;
+
+        for (byte i = 0; i <= this.texto.length(); i++){
+            if (this.texto.charAt(i) == letra) buffer++;
+        }
+        return buffer;
     }
 
     public int getPosicaoDaIezimaOcorrencia (int i, char letra) throws Exception
