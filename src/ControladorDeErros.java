@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class ControladorDeErros implements Cloneable
 {
     private int qtdMax, qtdErr=0;
@@ -38,20 +40,51 @@ public class ControladorDeErros implements Cloneable
     {
         // verificar se this e obj possuem o mesmo conteúdo, retornando
         // true no caso afirmativo ou false no caso negativo
+        if (this == obj) return true;
+
+        if (obj == null) return false;
+
+        if (this.getClass() != obj.getClass()) return false;
+
+        ControladorDeErros control = (ControladorDeErros) obj;
+
+        if (this.qtdErr != control.qtdErr) return false;
+        if (this.qtdMax != control.qtdMax) return false;
+
+        return true;
     }
 
     public int hashCode ()
     {
         // calcular e retornar o hashcode de this
+        int ret = 0;
+
+        ret = 11*ret + this.qtdMax;
+        ret = 11*ret + this.qtdErr;
+
+        return ret;
     }
 
     public ControladorDeErros (ControladorDeErros c) throws Exception // construtor de cópia
     {
         // copiar c.qtdMax e c.qtdErr, respectivamente em, this.qtdMax e this.qtdErr
+        if (c == null) throw new Exception("Modelo ausente");
+
+        this.qtdMax = c.qtdMax;
+        this.qtdErr = c.qtdErr;
     }
 
     public Object clone ()
     {
         // returnar uma cópia de this
+        ControladorDeErros ret = null;
+
+        try {
+            ret = new ControladorDeErros (this);
+        }
+        catch (Exception erro)
+        {}
+
+        return ret;
     }
 }
