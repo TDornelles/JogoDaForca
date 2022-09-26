@@ -46,11 +46,29 @@ public class ControladorDeLetrasJaDigitadas implements Cloneable
     public boolean equals (Object obj)
     {
         // verificar se this e obj são iguais
+        if (this == obj) return true;
+
+        if (obj == null) return false;
+
+        if (this.getClass() != obj.getClass()) return false;
+
+        ControladorDeLetrasJaDigitadas control = (ControladorDeLetrasJaDigitadas) obj;
+
+        if(this.letrasJaDigitadas != control.letrasJaDigitadas) return false;
+
+        return true;
     }
 
     public int hashCode ()
     {
         // calcular e retornar o hashcode de this
+        int ret = 444;
+
+        ret = ret*7 + new Integer (this.letrasJaDigitadas).hashCode();
+
+        if (ret < 0) ret = -ret;
+
+        return ret;
     }
 
     public ControladorDeLetrasJaDigitadas(
@@ -58,10 +76,18 @@ public class ControladorDeLetrasJaDigitadas implements Cloneable
     throws Exception // construtor de cópia
     {
         // copiar c.letrasJaDigitadas em this.letrasJaDigitadas
+        if (controladorDeLetrasJaDigitadas == null) throw new Exception("Modelo ausente");
     }
 
     public Object clone ()
     {
         // criar uma cópia do this com o construtor de cópia e retornar
+        ControladorDeLetrasJaDigitadas ret = null;
+
+        try {
+            ret = new ControladorDeLetrasJaDigitadas(this);
+        } catch (Exception e) {}
+
+        return ret;
     }
 }
