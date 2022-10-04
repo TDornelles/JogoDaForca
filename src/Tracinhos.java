@@ -50,7 +50,7 @@ public class Tracinhos implements Cloneable
         // no vetor this.texto, intercalados com espaços em
         // branco
 
-        String ret = null;
+        String ret = "";
 
         for (int i = 0; i < this.texto.length - 1; i++) {
             ret = ret + this.texto[i] + " ";
