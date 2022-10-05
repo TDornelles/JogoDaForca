@@ -20,6 +20,8 @@ public class ControladorDeErros implements Cloneable
         // lançando excecao em caso positivo ou
         // incrementando this.qtdErr em caso negativo
         if (this.qtdErr == this.qtdMax) throw new Exception("");
+
+        this.qtdErr++;
     }
 
     public boolean isAtingidoMaximoDeErros  ()
