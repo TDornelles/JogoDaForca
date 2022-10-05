@@ -6,9 +6,9 @@ public class Tracinhos implements Cloneable
 
     public Tracinhos (int qtd) throws Exception
     {
-		// verifica se qtd n„o È positiva, lanÁando uma exceÁ„o.
-		// instancia this.texto com um vetor com tamanho igual qtd.
-		// preenche this.texto com underlines (_).
+        // verifica se qtd n√£o √© positiva, lan√ßando uma exce√ß√£o.
+        // instancia this.texto com um vetor com tamanho igual qtd.
+        // preenche this.texto com underlines (_).
         if (qtd < 0) throw new Exception("Quantidade negativa");
 
         this.texto = new char[qtd];
@@ -19,12 +19,12 @@ public class Tracinhos implements Cloneable
 
     public void revele (int posicao, char letra) throws Exception
     {
-		// verifica se posicao È negativa ou ent„o igual ou maior
-		// do que this.texto.length, lanÁando uma exceÁ„o.
-		// armazena a letra fornecida na posicao tambem fornecida
-		// do vetor this.texto
+        // verifica se posicao √© negativa ou ent√£o igual ou maior
+        // do que this.texto.length, lan√ßando uma exce√ß√£o.
+        // armazena a letra fornecida na posicao tambem fornecida
+        // do vetor this.texto
         if (posicao < 0 || posicao >= this.texto.length){
-            throw new Exception("PosiÁ„o inv·lida");
+            throw new Exception("Posi√ß√£o inv√°lida");
         }
 
         this.texto[posicao] = letra;
@@ -46,8 +46,8 @@ public class Tracinhos implements Cloneable
 
     public String toString ()
     {
-        // retorna um String com TODOS os caracteres que h·
-        // no vetor this.texto, intercalados com espaÁos em
+        // retorna um String com TODOS os caracteres que h√°
+        // no vetor this.texto, intercalados com espa√ßos em
         // branco
 
         String ret = "";
@@ -63,7 +63,7 @@ public class Tracinhos implements Cloneable
 
     public boolean equals (Object obj)
     {
-        // verificar se this e obj possuem o mesmo conte˙do, retornando
+        // verificar se this e obj possuem o mesmo conte√∫do, retornando
         // true no caso afirmativo ou false no caso negativo
         if (obj == this) return true;
 
@@ -88,13 +88,17 @@ public class Tracinhos implements Cloneable
         return ret;
     }
 
-    public Tracinhos (Tracinhos t) throws Exception // construtor de cÛpia
+    public Tracinhos (Tracinhos t) throws Exception // construtor de c√≥pia
     {
         // intanciar this.texto um vetor com o mesmo tamanho de t.texto
-        // e copilar o conte˙do de t.texto para this.texto
+        // e copilar o conte√∫do de t.texto para this.texto
         if (t == null) throw new Exception("Modelo Ausente");
 
-        this.texto = new char[this.texto.length];
+        this.texto = new char[t.texto.length];
+
+        for (int i = 0; i < t.texto.length; i++) {
+            this.texto[i] = t.texto[i];
+        }
     }
 
     public Object clone ()

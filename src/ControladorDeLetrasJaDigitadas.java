@@ -12,7 +12,7 @@ public class ControladorDeLetrasJaDigitadas implements Cloneable
         // percorrer o String this.letrasJaDigitadas e verificar se ele
         // possui a letra fornecida, retornando true em caso afirmativo
         // ou false em caso negativo
-        for (byte i = 0; i <= this.letrasJaDigitadas.length(); i++) {
+        for (byte i = 0; i < this.letrasJaDigitadas.length(); i++) {
             if (letra == this.letrasJaDigitadas.charAt(i)) return true;
         }
         return false;
@@ -20,10 +20,10 @@ public class ControladorDeLetrasJaDigitadas implements Cloneable
 
     public void registre (char letra) throws Exception
     {
-		// verifica se a letra fornecida ja foi digitada (pode usar
-		// o método this.isJaDigitada, para isso), lancando uma exceção
-		// em caso afirmativo.
-		// concatena a letra fornecida a this.letrasJaDigitadas.
+        // verifica se a letra fornecida ja foi digitada (pode usar
+        // o mï¿½todo this.isJaDigitada, para isso), lancando uma exceï¿½ï¿½o
+        // em caso afirmativo.
+        // concatena a letra fornecida a this.letrasJaDigitadas.
         if (this.isJaDigitada(letra)) throw new Exception("Letra repetida");
         this.letrasJaDigitadas += letra;
     }
@@ -31,21 +31,21 @@ public class ControladorDeLetrasJaDigitadas implements Cloneable
     @Override
     public String toString ()
     {
-		// retorna um String com TODAS as letras presentes em
-		// this.letrasJaDigitadas separadas por vírgula (,).
+        // retorna um String com TODAS as letras presentes em
+        // this.letrasJaDigitadas separadas por vï¿½rgula (,).
         if (this.letrasJaDigitadas == "") return ("Nenhuma letra digitada por enquanto");
 
         String ret = "";
         for(byte i = 0; i < this.letrasJaDigitadas.length() - 1; i++){
             ret += this.letrasJaDigitadas.charAt(i) + ",";
         }
-        ret += this.letrasJaDigitadas.charAt(this.letrasJaDigitadas.length());
+        ret += this.letrasJaDigitadas.charAt(this.letrasJaDigitadas.length() - 1);
         return ret;
     }
 
     public boolean equals (Object obj)
     {
-        // verificar se this e obj são iguais
+        // verificar se this e obj sï¿½o iguais
         if (this == obj) return true;
 
         if (obj == null) return false;
@@ -72,8 +72,8 @@ public class ControladorDeLetrasJaDigitadas implements Cloneable
     }
 
     public ControladorDeLetrasJaDigitadas(
-    ControladorDeLetrasJaDigitadas controladorDeLetrasJaDigitadas)
-    throws Exception // construtor de cópia
+            ControladorDeLetrasJaDigitadas controladorDeLetrasJaDigitadas)
+            throws Exception // construtor de cï¿½pia
     {
         // copiar c.letrasJaDigitadas em this.letrasJaDigitadas
         if (controladorDeLetrasJaDigitadas == null) throw new Exception("Modelo ausente");
@@ -81,7 +81,7 @@ public class ControladorDeLetrasJaDigitadas implements Cloneable
 
     public Object clone ()
     {
-        // criar uma cópia do this com o construtor de cópia e retornar
+        // criar uma cï¿½pia do this com o construtor de cï¿½pia e retornar
         ControladorDeLetrasJaDigitadas ret = null;
 
         try {
