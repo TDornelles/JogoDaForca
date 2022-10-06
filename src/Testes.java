@@ -12,9 +12,9 @@ public class Testes {
             Tracinhos t2 = new Tracinhos(19);
             Tracinhos tReceiver = t1;
 
-            if(tNull.equals(t1))
+            /*if(tNull.equals(t1))
                 System.out.println("Null Caller tratado corretamente");
-            else System.err.println("Null caller tratado incorretamente");
+            else System.err.println("Null caller tratado incorretamente");*/
 
             if(t1.equals(t1))
                 System.out.println("Self Call tratado corretamente");
@@ -31,7 +31,7 @@ public class Testes {
         //teste hashcode
 
         //teste construtor
-        System.out.print("Teste construtor de Tracinhos:");
+        System.out.print("Teste construtor de Tracinhos: ");
         try{
 
             int qtd = 10;

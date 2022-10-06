@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-
 public class Tracinhos implements Cloneable
 {
     private char texto [];
@@ -73,7 +71,7 @@ public class Tracinhos implements Cloneable
 
         Tracinhos control = (Tracinhos) obj;
 
-        if(control.texto != this.texto) return false;
+        if(!control.texto.equals(this.texto)) return false;
 
         return true;
     }
@@ -83,7 +81,9 @@ public class Tracinhos implements Cloneable
         // calcular e retornar o hashcode de this
         int ret = 222;
 
-        ret = 11*ret + new Integer (String.valueOf(this.texto)).hashCode();
+        ret = 11*ret + Integer.valueOf(String.valueOf(this.texto)).hashCode();
+
+        if (ret < 0) ret = -ret;
 
         return ret;
     }

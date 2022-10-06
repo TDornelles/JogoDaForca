@@ -68,7 +68,7 @@ public class Palavra implements Comparable<Palavra>
 
         Palavra palavra = (Palavra) obj;
 
-        if (this.texto != palavra.texto) return false;
+        if (!this.texto.equals(palavra.texto)) return false;
 
         return true;
     }
@@ -76,9 +76,11 @@ public class Palavra implements Comparable<Palavra>
     public int hashCode ()
     {
         // calculare retornar o hashcode de this
-        int ret = 0;
+        int ret = 749;
 
         ret = ret * 7 + this.texto.hashCode();
+
+        if (ret < 0) ret = -ret;
 
         return ret;
     }
