@@ -77,6 +77,7 @@ public class ControladorDeLetrasJaDigitadas implements Cloneable
     {
         // copiar c.letrasJaDigitadas em this.letrasJaDigitadas
         if (controladorDeLetrasJaDigitadas == null) throw new Exception("Modelo ausente");
+        this.letrasJaDigitadas = controladorDeLetrasJaDigitadas.letrasJaDigitadas;
     }
 
     public Object clone ()
